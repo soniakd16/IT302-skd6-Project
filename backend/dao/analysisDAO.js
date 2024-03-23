@@ -1,13 +1,16 @@
 import mongodb from "mongodb"
 const ObjectId = mongodb.ObjectId
+//const mongodb= require('mongodb');
+//const client= new mongodb.MongoClient();
 
-let reviews
+let meme
 export default class AnalysisDAO {
+
   static async injectDB(conn) {
-    if(analysis) {
+    if(meme) {
       return
     } try {
-      reviews = await conn.db(process.env.MEMES_URI).collection('memes')
+      meme = await conn.db(process.env.MEMES).collection('memes')
     } catch(e) {
       console.error(`unable to establish connection handle in AnalysisDAO: ${e}`)
     }

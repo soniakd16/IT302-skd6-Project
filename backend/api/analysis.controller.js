@@ -1,6 +1,6 @@
 import memesDAO from "../dao/memesDAO.js"
 
-export default class ReviewsController {
+export default class AnalysisController {
 
     static async apiAnalysisPost(req,res,next) {
       try {
