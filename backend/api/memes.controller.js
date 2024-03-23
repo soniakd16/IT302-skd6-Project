@@ -27,5 +27,17 @@ export default class MemesController {
 
         res.json(response)
 
-    }
-}
+        try {
+            let title = req.params.title || {}
+            let memes = await memesDAO.getMemes(title)
+            if(!memes) {
+                res.status(404).json({ error: "not found"})
+                return
+            }
+            res.json(memes)
+        } catch(e) {
+            console.log('api, $(e)')
+            res.status(500).json({error: e})
+        }
+            }
+        }

@@ -5,7 +5,7 @@ import dotenv from "dotenv";
 //import dotenv from ".env";
 //import ContentDAO from './dao/memesDAO.js';
 import memesDAO from './dao/memesDAO.js';
-
+import AnalysisDAO from './dao/analysisDAO.js'
 async function main() {
 
     dotenv.config()
@@ -17,6 +17,7 @@ async function main() {
     try {
         await client.connect()
         await memesDAO.injectDB(client)
+        await AnalysisDAO.injectDB(client)
         app.listen (port, () => {
             console.log('server is running on port :' + port); })
          }
